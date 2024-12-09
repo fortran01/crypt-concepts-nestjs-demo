@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cryptographic Concepts Demo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="text-center mb-4">Cryptographic Concepts Demo</h1>
+
+        <!-- Password Hashing Section -->
+        <div class="card mb-4">
+            <div class="card-header">
+                <h2>Password Hashing</h2>
+            </div>
+            <div class="card-body">
+                <form id="hashForm">
+                    <div class="mb-3">
+                        <label for="password" class="form-label">Password</label>
+                        <input type="text" class="form-control" id="password" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="hashAlgorithm" class="form-label">Hash Algorithm</label>
+                        <select class="form-select" id="hashAlgorithm">
+                            <option value="sha256">SHA-256</option>
+                            <option value="sha3">SHA-3</option>
+                            <option value="bcrypt">BCrypt</option>
+                            <option value="argon2">Argon2</option>
+                        </select>
+                    </div>
+                    <div class="mb-3" id="workFactorGroup">
+                        <label for="workFactor" class="form-label">Work Factor</label>
+                        <input type="range" class="form-range" id="workFactor" min="4" max="16" value="12">
+                        <div class="text-muted">Current value: <span id="workFactorValue">12</span></div>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Hash Password</button>
+                </form>
+
+                <div id="hashResults" class="mt-4" style="display: none;">
+                    <h3>Results:</h3>
+                    <div class="result-step">
+                        <strong>Generated Salt:</strong>
+                        <pre class="result-value" id="saltValue"></pre>
+                    </div>
+                    <div class="result-step">
+                        <strong>Pepper (conceptual):</strong>
+                        <pre class="result-value">********</pre>
+                    </div>
+                    <div class="result-step">
+                        <strong>Concatenation Order:</strong>
+                        <pre class="result-value" id="concatenationOrder"></pre>
+                    </div>
+                    <div class="result-step">
+                        <strong>Final Hash:</strong>
+                        <pre class="result-value" id="hashValue"></pre>
+                    </div>
+                    <div class="result-step">
+                        <strong>Time Taken:</strong>
+                        <pre class="result-value" id="hashTiming"></pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Encryption/Decryption Section -->
+        <div class="card mb-4">
+            <div class="card-header">
+                <h2>Encryption/Decryption</h2>
+            </div>
+            <div class="card-body">
+                <form id="encryptForm">
+                    <div class="mb-3">
+                        <label for="plaintext" class="form-label">Data to Encrypt</label>
+                        <input type="text" class="form-control" id="plaintext" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Encrypt Data</button>
+                </form>
+
+                <div id="encryptResults" class="mt-4" style="display: none;">
+                    <h3>Encryption Results:</h3>
+                    <div class="result-step">
+                        <strong>Encrypted & Base64 Encoded:</strong>
+                        <pre class="result-value" id="encryptedValue"></pre>
+                    </div>
+                    <div class="result-step">
+                        <strong>Time Taken:</strong>
+                        <pre class="result-value" id="encryptTiming"></pre>
+                    </div>
+                    <button class="btn btn-secondary mt-3" id="decryptButton">Decrypt Data</button>
+                </div>
+
+                <div id="decryptResults" class="mt-4" style="display: none;">
+                    <h3>Decryption Results:</h3>
+                    <div class="result-step">
+                        <strong>Decrypted Data:</strong>
+                        <pre class="result-value" id="decryptedValue"></pre>
+                    </div>
+                    <div class="result-step">
+                        <strong>Time Taken:</strong>
+                        <pre class="result-value" id="decryptTiming"></pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/js/main.js"></script>
+</body>
+</html>

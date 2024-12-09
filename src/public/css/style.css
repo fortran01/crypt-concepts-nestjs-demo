@@ -1,0 +1,26 @@
+.result-step {
+    margin-bottom: 1rem;
+    padding: 0.5rem;
+    background-color: #f8f9fa;
+    border-radius: 0.25rem;
+}
+
+.result-value {
+    margin: 0.5rem 0;
+    padding: 0.5rem;
+    background-color: #fff;
+    border: 1px solid #dee2e6;
+    border-radius: 0.25rem;
+    word-break: break-all;
+}
+
+pre {
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    margin-bottom: 0;
+}
+
+/* Initially hide work factor group */
+#workFactorGroup {
+    display: none;
+}
